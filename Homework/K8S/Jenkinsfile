@@ -1,11 +1,11 @@
 pipeline{
     agent any
     stages{
-        stage("Clone"){
+        stage('Clone'){
             steps{
                 sh "git clone https://github.com/devopsPRO27/kub"
             }
-        stage("building") {
+        stage('building') {
             steps{
                 sh "npm install"
                 sh "npm start"
