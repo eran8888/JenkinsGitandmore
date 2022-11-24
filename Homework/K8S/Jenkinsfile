@@ -5,6 +5,11 @@ pipeline{
         skipDefaultCheckout(true)
     }
     stages{
+        stage('Cloning'){
+            steps{
+                sh "git clone https://github.com/eran8888/JenkinsGitandmore.git"
+            }
+        }
         stage('building') {
             steps{
                 // Clean before build
