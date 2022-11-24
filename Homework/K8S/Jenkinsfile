@@ -3,8 +3,9 @@ pipeline{
     stages{
         stage('Cloning'){
             steps{
-                git clone https://github.com/devopsPRO27/kub
+                sh "git clone https://github.com/devopsPRO27/kub"
             }
+        }
         stage('building') {
             steps{
                 sh "npm install"
@@ -12,6 +13,5 @@ pipeline{
             }
         }
             
-        }
     }
 }
