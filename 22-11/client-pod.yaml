@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: front  #The tag value of the pod - Can be anything - Just to understand what's the purposeof the pod
+spec:
+  containers:
+  - name: client-container
+    image: nginx:perl
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80

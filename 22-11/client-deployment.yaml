@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment # The name of the deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: front
+  template: # Specify how to create the pod
+    metadata:
+        name: client-pod # The name of the pod
+        labels:
+          component: front
+    spec:
+      containers:
+        - name: client-deployment
+          image: nginx
+          ports:
+          - containerPort: 80
