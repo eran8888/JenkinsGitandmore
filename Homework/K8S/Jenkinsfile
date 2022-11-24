@@ -1,9 +1,9 @@
 pipeline{
     agent any
     stages{
-        stage('Clone'){
+        stage('Cloning'){
             steps{
-                sh "git clone https://github.com/devopsPRO27/kub"
+                git clone https://github.com/devopsPRO27/kub
             }
         stage('building') {
             steps{
