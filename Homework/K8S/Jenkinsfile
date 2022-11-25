@@ -15,9 +15,9 @@ pipeline{
         stage('building'){
             steps{
                 dir('Homework/K8S/docker-app') {
-                sh "docker build -t npm:0.0.1"
-                sh "docker run -p8082:3000 -t npm:0.0.1"
-                sh "docker stop npm:0.0.1"
+                sh 'docker build -t npm:0.0.1'
+                sh 'docker run -p8082:3000 -t npm:0.0.1'
+                sh 'docker stop npm:0.0.1'
                 }
             }
         }
