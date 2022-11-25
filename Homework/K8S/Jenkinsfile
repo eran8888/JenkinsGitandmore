@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Cloning'){
             steps{
-                sh "git clone https://github.com/eran8888/JenkinsGitandmore.git"
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/eran8888/JenkinsGitandmore.git']]])
             }
         }
         stage('building') {
