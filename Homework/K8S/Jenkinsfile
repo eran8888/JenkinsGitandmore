@@ -14,10 +14,11 @@ pipeline{
         }
         stage('building'){
             steps{
-                sh "cd '/var/jenkins_home/workspace/Hodi's homework kub@tmp/durable-d59dca3eHomework/K8S/docker-app'"
+                dir('Homework/K8S/docker-app') {
                 sh "docker build -t npm:0.0.1"
                 sh "docker run -p8082:3000 -t npm:0.0.1"
                 sh "docker stop npm:0.0.1"
+                }
             }
         }
     }
