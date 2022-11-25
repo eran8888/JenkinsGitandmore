@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: npm-deployment # The name of the deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      component: front # The name of the label of the service
+  template: # Specify how to create the pod
+    metadata:
+        name: npm-pod # The name of the pod
+        labels:
+          component: front # has to be similar as matchLabels and also similar the label in service
+    spec:
+      containers:
+        - name: npm-deployment
+          image: 8260thee88news/npm:0.0.7
+          ports:
+          - containerPort: 3000 # This is the internal pod port which is mapped to the external port on my host. In case of node/npm it run as default on port 3000
