@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    options {
+    options{
         // This is required if you want to clean before build
         skipDefaultCheckout(true)
     }
@@ -16,7 +16,7 @@ pipeline{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/eran8888/JenkinsGitandmore.git']]])
             }
         }
-        stage('building') {
+        stage('building'){
             steps{
                 sh "cd Homework/K8S/docker-app"
                 sh "docker build -t npm:0.0.1"
