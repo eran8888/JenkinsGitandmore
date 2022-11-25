@@ -1,16 +1,12 @@
 pipeline{
     agent any
-    options{
-        // This is required if you want to clean before build
-        skipDefaultCheckout(true)
-    }
     stages{
-        stage('Cleaning'){
-            steps{
-                // Clean before build
-                cleanWs()
-            }
-        }
+        // stage('Cleaning'){
+        //     steps{
+        //         // Clean before build
+        //         cleanWs()
+        //     }
+        // }
         stage('Cloning'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/eran8888/JenkinsGitandmore.git']]])
