@@ -24,6 +24,5 @@ pipeline{
                 sh "docker stop npm:0.0.1"
             }
         }
-            
     }
 }
