@@ -1,5 +1,7 @@
+//need to rewrite this jenkinsfile in order to run it on a clean container=
+
 pipeline{
-    agent any
+    agent docker
     stages{
         // stage('Cleaning'){
         //     steps{

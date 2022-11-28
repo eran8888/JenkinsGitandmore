@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-react-deployment # The name of the deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: front # The name of the label of the service
+  template: # Specify how to create the pod
+    metadata:
+        name: reacy-pod # The name of the pod
+        labels:
+          component: front # has to be similar as matchLabels and also similar the label in service
+    spec:
+      containers:
+        - name: node-react-deployment
+          image: 8260thee88news/hodinproject:0.0.1
+          ports:
+          - containerPort: 3000 # This is the internal pod port which is mapped to the external port on my host. In case of node/npm it run as default on port 3000
