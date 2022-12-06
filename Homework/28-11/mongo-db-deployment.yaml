@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment # The name of the deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb # The name of the label of the service
+  template: # Specify how to create the pod
+    metadata:
+        name: mongodb-pod # The name of the pod
+        labels:
+          app: mongodb # has to be similar as matchLabels and also similar the label in service
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo
+          ports:
+            - containerPort: 27017 # This is the internal pod port which is mapped to the external port on my host. In case of node/npm it run as default on port 3000
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-mysecret
+                  key: mongo-root-username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-mysecret
+                  key: mongo-root-password
